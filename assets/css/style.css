@@ -1,0 +1,38 @@
+body {
+  background: url(../images/background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.btn-black {
+  background-color: black;
+  color: white;
+}
+
+.top {
+  background: url(../images/train.jpg) no-repeat;
+  min-height: 375px;
+  color: white;
+  position: relative;
+}
+
+.card-header {
+  color: black;
+  background: linear-gradient(to right, #F29F33, #532B0C); /* #F7A2118 */
+}
+
+.top-text {
+  height: 120px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translatex(-50%);
+}
+
+#train-table {
+  border-color: #F7A211;
+}
