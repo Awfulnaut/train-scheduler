@@ -34,6 +34,19 @@ body {
   transform: translateX(-50%);
 }
 
+.current-time {
+  float: right;
+  margin-top: 10px;
+}
+
+#current-time {
+  font-weight: bold;
+}
+
 #train-table {
   border-color: #F7A211;
+}
+
+#train-table th, #train-table td, .add-train-table input {
+  border-color: orange;
 }

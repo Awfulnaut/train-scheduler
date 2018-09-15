@@ -11,6 +11,9 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 $(document).ready(function() {
+  var now = moment();
+  $('#current-time').text(moment(now).format("hh:mm"));
+
   $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
 
