@@ -13,6 +13,7 @@ body {
 
 .top {
   background: url(../images/train.jpg) no-repeat;
+  background-position: center;
   min-height: 375px;
   color: white;
   position: relative;
@@ -30,7 +31,7 @@ body {
   position: absolute;
   top: 0;
   left: 50%;
-  transform: translatex(-50%);
+  transform: translateX(-50%);
 }
 
 #train-table {
