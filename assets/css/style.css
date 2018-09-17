@@ -50,3 +50,18 @@ body {
 #train-table th, #train-table td, .add-train-table input {
   border-color: orange;
 }
+
+#train-table tbody tr td:last-child {
+  text-align: center;
+}
+
+th.red {
+  color: red;
+  text-align: center;
+}
+
+.delete-btn {
+  background: red;
+  cursor: pointer;
+  border-radius: 5px;
+}

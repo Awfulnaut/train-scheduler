@@ -9,6 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 var database = firebase.database();
+var rootRef = firebase.database().ref();
 
 $(document).ready(function() {
   var now = moment();
@@ -46,6 +47,7 @@ $(document).ready(function() {
     var trainDest = snapshot.val().destination;
     var trainTime = snapshot.val().time;
     var trainFrequency = snapshot.val().frequency;
+    var trainKey = snapshot.key;
   
     // Calculate train's next arrival time and minutes away from the current time
     firstArrivalTime = moment(trainTime, "HH:mm").subtract(1, "years");
@@ -60,10 +62,32 @@ $(document).ready(function() {
       $("<td>").text(trainDest),
       $("<td>").text(trainFrequency),
       $("<td>").text(moment(nextArrival).format("hh:mm")),
-      $("<td>").text(minutesAway)
+      $("<td>").text(minutesAway),
+      $("<td>").html("<button class=\"delete-btn\">X</button>")
     );
+
+    // Assign the row's firebase push key as a data attribute
+    newRow.data("key", trainKey);
   
     // Append the new row to the table
     $("#train-table > tbody").append(newRow);
+  });
+
+  // When a delete button inside the train table is clicked...
+  $("#train-table").on('click','.delete-btn', function(){
+    // Find the row's assigned push key
+    var $row = $(this).closest('tr');
+    var rowId = $row.data('key');
+
+    // Delete the firebase entry using the push key
+    database.ref(rowId).remove()
+    .then(function() {
+      // Then remove the row from the DOM
+      $row.remove();
+    })
+    //Catch errors
+    .catch(function(error) {
+      console.log('ERROR');
+    });  
   });
 });
